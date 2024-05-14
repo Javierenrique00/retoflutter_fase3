@@ -1,16 +1,19 @@
 # example
 
-A new Flutter project.
+Este ejemplo demuestra el usao del paquete Apistoreapi el cual se conecta al repositorio [Fake Store](https://fakestoreapi.com/)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Para usar este ejemplo se debe clonar el repositorio de github en: https://github.com/Javierenrique00/retoflutter_fase3
 
-A few resources to get you started if this is your first Flutter project:
+Para esto desde una consola se debe ejecutar:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+`git clone https://github.com/Javierenrique00/retoflutter_fase3.git`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ahora se entra al directorio así:
+
+`cd retoflutter_fase3/apistorepackage`
+
+Ahora se puede ajecutar el proyecto de flutter normalmente sobre esta ruta donde podremos ver el ejemplo funcionando con las siguiente pantalla:
+
+![Screen Example](./doc/example_screen.png)
