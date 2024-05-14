@@ -1,6 +1,6 @@
 # Descripción
 
-Este paquete permite conectarse a la API del Fake Store: [Link fake Store](https://fakestoreapi.com/) para hacer hacer consultas de productos, usuarios y el carrito por medio de las interfaces:
+Este paquete se desarrolla como dependencia para un proyecto de dart o flutter el cual permite conectarse a la API del Fake Store: [Link fake Store](https://fakestoreapi.com/) para hacer hacer consultas de productos, usuarios y el carrito por medio de las interfaces:
 
 - ProductsInterface
 - UsersInterface
@@ -28,7 +28,11 @@ abstract class ProductsInterface {
 }
 ```
 
-## Getting started
+## Prerequisitos
+
+Dart 3.x o Flutter 3.x
+
+## Instalación
 
 Para usar este paquete se hace agregándolo a la dependencia en el archivo pubspec.yaml y dado que está publicado en Github la conexión es así:
 
@@ -91,7 +95,7 @@ Ejemplo que trae todos los carritos:
 
 ```
 
-Para un ejemplo detalaldo ver el proyecto de flutter en ./example
+Para un ejemplo detallado ver el proyecto de flutter en ./example
 
 ## Información adicional
 
