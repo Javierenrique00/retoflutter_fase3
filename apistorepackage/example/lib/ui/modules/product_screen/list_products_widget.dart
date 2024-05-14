@@ -1,7 +1,8 @@
 import 'package:apistorepackage/model/product/product_model.dart';
-import 'package:example/domain/viewmodel/app_viewmodel.dart';
+import 'package:example/domain/viewmodel/products_viewmodel.dart';
 import 'package:example/ui/modules/common/color_app.dart';
 import 'package:example/ui/modules/common/common_elevated_button_widget.dart';
+import 'package:example/ui/modules/common/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,17 +26,16 @@ class _ListProductsWidgetState extends State<ListProductsWidget> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
-      child: Consumer<AppViewModel>(builder: (context, viewModel, child) {
+      child: Consumer<ProductsViewModel>(builder: (context, viewModel, child) {
         if (!hasInit) {
           hasInit = true;
           viewModel.getAllProducts();
         }
         return showData(
-            viewModel.products, viewModel.hasValidProducts, viewModel.hasError,
+            viewModel.products, viewModel.hasValidProducts, viewModel.hasErrorProducts,
             () {
-          viewModel.initData();
+          viewModel.initProducts();
           viewModel.getAllProducts();
-          print('Please load again....');
         });
       }),
     );
@@ -55,7 +55,7 @@ class _ListProductsWidgetState extends State<ListProductsWidget> {
               leading: Image.network(products[index].image),
               title: Text(products[index].title),
               subtitle: Text(products[index].category),
-              trailing: Text(products[index].price.toString()),
+              trailing: Text(Utils.convCurrency(products[index].price)),
             ),
           ),
         ),
@@ -74,7 +74,7 @@ class _ListProductsWidgetState extends State<ListProductsWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Error loading data...'),
+          const Text('Error loading Products data...'),
           const SizedBox(
             height: 15,
           ),
