@@ -1,9 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:apistorepackage/apistorepackage.dart';
-
 void main() {
-  test('test noyhing', () {
+  test('test nothing', () {
   
     expect(1, 1);
   });
