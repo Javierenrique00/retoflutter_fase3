@@ -1,6 +1,6 @@
 # example
 
-Este ejemplo demuestra el usao del paquete Apistoreapi el cual se conecta al repositorio [Fake Store](https://fakestoreapi.com/)
+Este ejemplo demuestra el uso del paquete Apistoreapi el cual se conecta al repositorio [Fake Store](https://fakestoreapi.com/)
 
 ## Getting Started
 
