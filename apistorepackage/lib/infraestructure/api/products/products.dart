@@ -5,7 +5,7 @@ import '../common/baseio.dart';
 import '../common/paths.dart';
 import 'products_interface.dart';
 
-class Products implements ProductsInterface{
+final class Products implements ProductsInterface{
 
   final productsApi = Baseio<ProductModel>(urlpath: Paths.urlProducts,serializer: (p0) => productModelFromJsonMapper(p0),);
   

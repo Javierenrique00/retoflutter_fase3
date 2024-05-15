@@ -1,7 +1,7 @@
 name: apistorepackage
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: "Api for fakeStore"
+version: 1.0.0
+homepage: https://github.com/Javierenrique00/retoflutter_fase3/tree/main/apistorepackage
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

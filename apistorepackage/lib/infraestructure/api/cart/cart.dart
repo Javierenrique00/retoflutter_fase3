@@ -5,7 +5,7 @@ import '../common/baseio.dart';
 import 'cart_interface.dart';
 import '../common/paths.dart';
 
-class Cart implements CartInterface {
+final class Cart implements CartInterface {
 
   final cartApi = Baseio<CartModel>(urlpath: Paths.urlCarts,serializer: (p0) => cartModelFromJsonMapper(p0),);
 

@@ -1,6 +1,4 @@
-import 'package:apistorepackage/infraestructure/api/products/products.dart';
-import 'package:apistorepackage/infraestructure/api/users/users.dart';
-import 'package:apistorepackage/infraestructure/api/cart/cart.dart';
+import 'package:apistorepackage/infraestructure/api/store/store_api.dart';
 import 'package:example/domain/viewmodel/cart_viewmodel.dart';
 import 'package:example/domain/viewmodel/products_viewmodel.dart';
 import 'package:example/domain/viewmodel/users_viewmodel.dart';
@@ -9,13 +7,15 @@ import 'package:example/ui/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final storeImpl = StoreGatewayImpl(
+    store: StoreApi(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -25,39 +25,26 @@ class MyApp extends StatelessWidget {
   Widget provideProductsViewModel(BuildContext context) =>
       ChangeNotifierProvider(
         create: (context) => ProductsViewModel(
-          store: StoreGatewayImpl(
-            products: Products(),
-            users: Users(),
-            cart: Cart(),
-          ),
+          store: storeImpl,
         ),
         child: provideUsersViewModel(context),
       );
 
-    Widget provideUsersViewModel(BuildContext context) =>
-      ChangeNotifierProvider(
+  Widget provideUsersViewModel(BuildContext context) => ChangeNotifierProvider(
         create: (context) => UsersViewModel(
-          store: StoreGatewayImpl(
-            products: Products(),
-            users: Users(),
-            cart: Cart(),
-          ),
+          store: storeImpl,
         ),
         child: provideCartViewModel(context),
       );
 
-      Widget provideCartViewModel(BuildContext context) =>
-      ChangeNotifierProvider(
+  Widget provideCartViewModel(BuildContext context) => ChangeNotifierProvider(
         create: (context) => CartViewModel(
-          store: StoreGatewayImpl(
-            products: Products(),
-            users: Users(),
-            cart: Cart(),
-          ),
+          store: storeImpl,
         ),
         child: const AppGlobalState(),
       );
 }
+
 
 class AppGlobalState extends StatelessWidget {
   const AppGlobalState({

@@ -1,34 +1,33 @@
 
 
 import 'package:apistorepackage/infraestructure/api/products/products_interface.dart';
+import 'package:apistorepackage/infraestructure/api/store/store_api_interface.dart';
 import 'package:apistorepackage/infraestructure/api/users/users_interface.dart';
 import 'package:apistorepackage/infraestructure/api/cart/cart_interface.dart';
 import 'package:example/infraestructure/gateway/store_gateway.dart';
 
 class StoreGatewayImpl implements StoreGateway {
 
-  StoreGatewayImpl({required this.products,required this.users, required this.cart});
+  StoreGatewayImpl({required this.store});
 
-final ProductsInterface products;
-final UsersInterface users;
-final CartInterface cart;
+late final StoreApiInterface store;
 
   @override
-  Future<ResponseGetAllProducts> getAllProducts() => products.getAllProducts();
+  Future<ResponseGetAllProducts> getAllProducts() => store.getAllProducts();
 
   @override
-  Future<ResponseGetProduct> getSingleProduct(int id) => products.getSingleProduct(id);
+  Future<ResponseGetProduct> getSingleProduct(int id) => store.getSingleProduct(id);
     
   @override
-  Future<ResponseGetAllUsers> getAllUsers() => users.getAllUsers();
+  Future<ResponseGetAllUsers> getAllUsers() => store.getAllUsers();
 
   @override
-  Future<ResponseGetUser> getSingleUser(int id) => users.getSingleUser(id);
+  Future<ResponseGetUser> getSingleUser(int id) => store.getSingleUser(id);
   
   @override
-  Future<ResponseGetAllCarts> getAllCarts() => cart.getAllCarts();
+  Future<ResponseGetAllCarts> getAllCarts() => store.getAllCarts();
 
   @override
-  Future<ResponseGetCart> getSingleCart(int id) => cart.getSingleCart(id);
+  Future<ResponseGetCart> getSingleCart(int id) => store.getSingleCart(id);
 
 }

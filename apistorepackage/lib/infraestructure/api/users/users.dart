@@ -5,7 +5,7 @@ import '../common/baseio.dart';
 import '../common/paths.dart';
 import 'users_interface.dart';
 
-class Users implements UsersInterface{
+final class Users implements UsersInterface{
 
   final usersApi = Baseio<UserModel>(urlpath: Paths.urlUsers,serializer: (p0) => userModelFromJsonMapper(p0),);
   
