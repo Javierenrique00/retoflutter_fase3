@@ -8,13 +8,12 @@ import 'package:apistorepackage/infraestructure/api/users/users.dart';
 import 'package:apistorepackage/infraestructure/api/users/users_interface.dart';
 import 'package:apistorepackage/infraestructure/api/store/store_api_interface.dart';
 
-/// Class that implements all store api for the fake Store API
-///  ---------------------------------------------------------
 class StoreApi implements StoreApiInterface {
   final _products = Products();
   final _users = Users();
   final _cart = Cart();
-  
+
+  /// Constructor that implements all store api for the fake Store API
   StoreApi();
 
   /// Get all products of the store
