@@ -7,6 +7,9 @@ class ProductModel {
   final String category;
   final String image;
 
+  /// ### ProductModel
+  ///
+  /// Represent one product of the fakeStore
   ProductModel({required this.id, required this.title, required this.price, required this.description, required this.category, required this.image});
 
   @override

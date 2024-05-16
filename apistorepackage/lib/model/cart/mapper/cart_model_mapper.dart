@@ -11,9 +11,9 @@ CartModel cartModelFromJsonMapper(Map<String, dynamic> json) => CartModel(
           .toList(),
     );
 
-// Map<String, dynamic> cartModelToJsonMapper(CartModel instance) => <String, dynamic>{
-//       'id': instance.id,
-//       'userId': instance.userId,
-//       'date': instance.date,
-//       'products': instance.products.map((e) => e.toJson()).toList(),
-//     };
+Map<String, dynamic> cartModelToJsonMapper(CartModel instance) => <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'date': instance.date,
+      'products': instance.products,
+    };

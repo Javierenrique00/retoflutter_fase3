@@ -16,27 +16,114 @@ class StoreApi implements StoreApiInterface {
   /// Constructor that implements all store api for the fake Store API
   StoreApi();
 
+  /// ### getAllProducts()
+  /// 
   /// Get all products of the store
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final allProductsEither = await StoreApi().getAllProducts();
+  ///    allProductsEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('loaded all products: qty:${r.length}');
+  ///       print('Primer producto: ${r[0]}');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetAllProducts> getAllProducts() => _products.getAllProducts();
 
-  /// Get product for the productId (int: id) parameter
+  /// ### getSingleProduct(id)
+  /// 
+  /// Get the product with the product id = [id]
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final ProductEither = await StoreApi().getSingleProduct(3);
+  ///    ProductEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('product: qty:$r');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetProduct> getSingleProduct(int id) => _products.getSingleProduct(id);
 
-  /// get all users in the the store
+  /// ### getAllUsers()
+  /// 
+  /// Get all users of the store
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final allUsersEither = await StoreApi().getAllUsers();
+  ///    allUsersEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('loaded all users: qty:${r.length}');
+  ///       print('Primer user: ${r[0]}');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetAllUsers> getAllUsers() => _users.getAllUsers();
 
-  /// Get the user for the userId (int: id) parameter
+  /// ### getSingleUser(id)
+  /// 
+  /// Get the user with the userId = [id]
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final userEither = await StoreApi().getSingleUser(3);
+  ///    userEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('user: qty:$r');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetUser> getSingleUser(int id) => _users.getSingleUser(id);
 
-  /// Get all the carts of the store
+  /// ### getAllCart()
+  /// 
+  /// Get all carts of the store
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final allCartEither = await StoreApi().getAllCart();
+  ///    allCartEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('loaded all cart: qty:${r.length}');
+  ///       print('Primer cart: ${r[0]}');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetAllCarts> getAllCarts() => _cart.getAllCarts();
 
-  /// Get the cart for the cartId (int: id) parameter
+  /// ### getSingleCart(id)
+  /// 
+  /// Get the cart with the cartId = [id]
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final cartEither = await StoreApi().getSingleCart(3);
+  ///    cartEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('cart: qty:$r');
+  ///     },
+  ///   );
+  /// ```
   @override
   Future<ResponseGetCart> getSingleCart(int id) => _cart.getSingleCart(id);
 

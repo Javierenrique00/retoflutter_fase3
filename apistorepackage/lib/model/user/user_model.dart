@@ -11,6 +11,9 @@ class UserModel {
   final AddressModel address;
    final NameModel name;
 
+  /// ### UserModel
+  ///
+  /// Represent one user of the fakeStore
   UserModel(this.id, this.username, this.email, this.password, this.phone, this.address, this.name);
 
   @override

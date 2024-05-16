@@ -7,6 +7,9 @@ class CartModel {
   final String date;
   final List<ProductsQtyModel> products;
 
+  /// ### CartModel
+  ///
+  /// Represent a cart of the fakeStore
   CartModel( this.id,  this.userId, this.date, this.products);
 
   @override
