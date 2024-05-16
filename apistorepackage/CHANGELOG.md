@@ -8,6 +8,6 @@ Initial release with a test API
 
 Api for Products, Users and Cart. Only for read all and read by ID functions.
 
-## 1.0.1 Productive version
+## 1.0.1 Fix some documentation details
 
 Fix documentation, and commented code.
