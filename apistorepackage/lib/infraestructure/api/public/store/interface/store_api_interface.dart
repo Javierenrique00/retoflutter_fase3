@@ -1,8 +1,17 @@
 
 
-import 'package:apistorepackage/infraestructure/api/cart/cart_interface.dart';
-import 'package:apistorepackage/infraestructure/api/products/products_interface.dart';
-import 'package:apistorepackage/infraestructure/api/users/users_interface.dart';
+import 'package:apistorepackage/model/cart/cart_model.dart';
+import 'package:apistorepackage/model/product/product_model.dart';
+import 'package:apistorepackage/model/user/user_model.dart';
+import 'package:dartz/dartz.dart';
+
+
+typedef ResponseGetAllProducts = Either<String, List<ProductModel>>;
+typedef ResponseGetProduct = Either<String, ProductModel>;
+typedef ResponseGetAllUsers = Either<String, List<UserModel>>;
+typedef ResponseGetUser = Either<String, UserModel>;
+typedef ResponseGetAllCarts = Either<String, List<CartModel>>;
+typedef ResponseGetCart = Either<String, CartModel>;
 
 /// Class with the interface of all store api for the fake Store API
 abstract class StoreApiInterface {

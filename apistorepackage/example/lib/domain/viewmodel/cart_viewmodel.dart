@@ -1,11 +1,11 @@
+import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
 import 'package:apistorepackage/model/cart/cart_model.dart';
-import 'package:example/infraestructure/gateway/store_gateway.dart';
 import 'package:flutter/material.dart';
 
 class CartViewModel extends ChangeNotifier {
   CartViewModel({required this.store});
 
- final StoreGateway store;
+ final StoreApiInterface store;
 
   final List<CartModel> cart = [];
   var hasValidCart = false;

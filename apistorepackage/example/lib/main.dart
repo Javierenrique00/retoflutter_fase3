@@ -1,4 +1,4 @@
-import 'package:apistorepackage/infraestructure/api/store/store_api.dart';
+import 'package:apistorepackage/infraestructure/api/public/store/store_api.dart';
 import 'package:example/domain/viewmodel/cart_viewmodel.dart';
 import 'package:example/domain/viewmodel/products_viewmodel.dart';
 import 'package:example/domain/viewmodel/users_viewmodel.dart';

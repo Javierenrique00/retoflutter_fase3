@@ -1,12 +1,8 @@
 
 
-import 'package:apistorepackage/infraestructure/api/products/products_interface.dart';
-import 'package:apistorepackage/infraestructure/api/store/store_api_interface.dart';
-import 'package:apistorepackage/infraestructure/api/users/users_interface.dart';
-import 'package:apistorepackage/infraestructure/api/cart/cart_interface.dart';
-import 'package:example/infraestructure/gateway/store_gateway.dart';
+import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
 
-class StoreGatewayImpl implements StoreGateway {
+class StoreGatewayImpl implements StoreApiInterface {
 
   StoreGatewayImpl({required this.store});
 

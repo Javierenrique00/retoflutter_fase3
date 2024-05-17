@@ -1,11 +1,11 @@
+import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
 import 'package:apistorepackage/model/product/product_model.dart';
 import 'package:flutter/material.dart';
-import 'package:example/infraestructure/gateway/store_gateway.dart';
 
 class ProductsViewModel extends ChangeNotifier {
   ProductsViewModel({required this.store});
 
-  final StoreGateway store;
+  final StoreApiInterface store;
 
   final List<ProductModel> products =  [];
   var hasValidProducts = false;

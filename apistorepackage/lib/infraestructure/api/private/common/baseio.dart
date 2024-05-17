@@ -8,7 +8,7 @@ class Baseio<T> {
 
   final Function (dynamic) serializer;
 
-  Baseio({required this.urlpath, required this.serializer});
+  const Baseio({required this.urlpath, required this.serializer});
 
   final String urlpath;
 

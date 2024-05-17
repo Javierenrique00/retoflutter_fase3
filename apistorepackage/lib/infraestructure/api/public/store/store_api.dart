@@ -1,19 +1,32 @@
 
 
-import 'package:apistorepackage/infraestructure/api/cart/cart.dart';
-import 'package:apistorepackage/infraestructure/api/cart/cart_interface.dart';
-import 'package:apistorepackage/infraestructure/api/products/products.dart';
-import 'package:apistorepackage/infraestructure/api/products/products_interface.dart';
-import 'package:apistorepackage/infraestructure/api/users/users.dart';
-import 'package:apistorepackage/infraestructure/api/users/users_interface.dart';
-import 'package:apistorepackage/infraestructure/api/store/store_api_interface.dart';
+import 'package:apistorepackage/infraestructure/api/private/common/baseio.dart';
+import 'package:apistorepackage/infraestructure/api/private/common/paths.dart';
+import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
+import 'package:apistorepackage/model/cart/cart_model.dart';
+import 'package:apistorepackage/model/cart/mapper/cart_model_mapper.dart';
+import 'package:apistorepackage/model/product/mapper/product_model_mapper.dart';
+import 'package:apistorepackage/model/product/product_model.dart';
+import 'package:apistorepackage/model/user/mapper/user_model_mapper.dart';
+import 'package:apistorepackage/model/user/user_model.dart';
+
 
 class StoreApi implements StoreApiInterface {
-  final _products = Products();
-  final _users = Users();
-  final _cart = Cart();
 
-  /// Constructor that implements all store api for the fake Store API
+  final _products = Baseio<ProductModel>(urlpath: Paths.urlProducts,serializer: (p0) => productModelFromJsonMapper(p0),);
+  final _users = Baseio<UserModel>(urlpath: Paths.urlUsers,serializer: (p0) => userModelFromJsonMapper(p0),);
+  final _cart = Baseio<CartModel>(urlpath: Paths.urlCarts,serializer: (p0) => cartModelFromJsonMapper(p0),);
+
+  /// ### StoreApi()
+  /// Punto de entrada para el acceso de todo el StoreApi
+  /// provee funciones como:
+  /// 
+  /// - StoreApi().getAllProducts();
+  /// - StoreApi().getSingleProduct(id);
+  /// - StoreApi().getAllUsers();
+  /// - StoreApi().getSingleUser(id);
+  /// - StoreApi().getAllCarts();
+  /// - StoreApi().getSingleCart(id);
   StoreApi();
 
   /// ### getAllProducts()
@@ -33,7 +46,7 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetAllProducts> getAllProducts() => _products.getAllProducts();
+  Future<ResponseGetAllProducts> getAllProducts() => _products.getAll();
 
   /// ### getSingleProduct(id)
   /// 
@@ -51,7 +64,7 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetProduct> getSingleProduct(int id) => _products.getSingleProduct(id);
+  Future<ResponseGetProduct> getSingleProduct(int id) => _products.getSingle(id);
 
   /// ### getAllUsers()
   /// 
@@ -70,7 +83,7 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetAllUsers> getAllUsers() => _users.getAllUsers();
+  Future<ResponseGetAllUsers> getAllUsers() => _users.getAll();
 
   /// ### getSingleUser(id)
   /// 
@@ -88,7 +101,7 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetUser> getSingleUser(int id) => _users.getSingleUser(id);
+  Future<ResponseGetUser> getSingleUser(int id) => _users.getSingle(id);
 
   /// ### getAllCart()
   /// 
@@ -107,7 +120,7 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetAllCarts> getAllCarts() => _cart.getAllCarts();
+  Future<ResponseGetAllCarts> getAllCarts() => _cart.getAll();
 
   /// ### getSingleCart(id)
   /// 
@@ -125,6 +138,6 @@ class StoreApi implements StoreApiInterface {
   ///   );
   /// ```
   @override
-  Future<ResponseGetCart> getSingleCart(int id) => _cart.getSingleCart(id);
+  Future<ResponseGetCart> getSingleCart(int id) => _cart.getSingle(id);
 
 }

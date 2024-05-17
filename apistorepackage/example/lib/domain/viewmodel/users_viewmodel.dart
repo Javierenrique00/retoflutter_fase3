@@ -1,12 +1,12 @@
 
+import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
 import 'package:apistorepackage/model/user/user_model.dart';
 import 'package:flutter/material.dart';
-import 'package:example/infraestructure/gateway/store_gateway.dart';
 
 class UsersViewModel extends ChangeNotifier {
   UsersViewModel({required this.store});
 
-  final StoreGateway store;
+  final StoreApiInterface store;
 
   final List<UserModel> users = [];
   var hasValidUsers = false;
