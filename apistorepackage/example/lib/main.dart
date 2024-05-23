@@ -1,5 +1,6 @@
 import 'package:apistorepackage/infraestructure/api/public/store/store_api.dart';
 import 'package:example/domain/viewmodel/cart_viewmodel.dart';
+import 'package:example/domain/viewmodel/categories_viewmodel.dart';
 import 'package:example/domain/viewmodel/products_viewmodel.dart';
 import 'package:example/domain/viewmodel/users_viewmodel.dart';
 import 'package:example/infraestructure/gateway/store_gateway_impl.dart';
@@ -39,6 +40,13 @@ class MyApp extends StatelessWidget {
 
   Widget provideCartViewModel(BuildContext context) => ChangeNotifierProvider(
         create: (context) => CartViewModel(
+          store: storeImpl,
+        ),
+        child: provideCategoriesViewModel(context),
+      );
+
+    Widget provideCategoriesViewModel(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => CategoriesViewModel(
           store: storeImpl,
         ),
         child: const AppGlobalState(),

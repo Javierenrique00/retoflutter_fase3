@@ -5,6 +5,7 @@ import 'package:apistorepackage/infraestructure/api/private/common/paths.dart';
 import 'package:apistorepackage/infraestructure/api/public/store/interface/store_api_interface.dart';
 import 'package:apistorepackage/model/cart/cart_model.dart';
 import 'package:apistorepackage/model/cart/mapper/cart_model_mapper.dart';
+import 'package:apistorepackage/model/categories/mapper/categories_maper.dart';
 import 'package:apistorepackage/model/product/mapper/product_model_mapper.dart';
 import 'package:apistorepackage/model/product/product_model.dart';
 import 'package:apistorepackage/model/user/mapper/user_model_mapper.dart';
@@ -16,6 +17,8 @@ class StoreApi implements StoreApiInterface {
   final _products = Baseio<ProductModel>(urlpath: Paths.urlProducts,serializer: (p0) => productModelFromJsonMapper(p0),);
   final _users = Baseio<UserModel>(urlpath: Paths.urlUsers,serializer: (p0) => userModelFromJsonMapper(p0),);
   final _cart = Baseio<CartModel>(urlpath: Paths.urlCarts,serializer: (p0) => cartModelFromJsonMapper(p0),);
+  final _categories = Baseio<String>(urlpath: Paths.urlCategory,serializer: (p0) => categoriesFromJsonMapper(p0),);
+  
 
   /// ### StoreApi()
   /// Punto de entrada para el acceso de todo el StoreApi
@@ -139,5 +142,12 @@ class StoreApi implements StoreApiInterface {
   /// ```
   @override
   Future<ResponseGetCart> getSingleCart(int id) => _cart.getSingle(id);
+  
+  @override
+  Future<ResponseGetAllCategories> getAllCategories() => _categories.getAll();
+  
+  @override
+  Future<ResponseGetAllProducts> getAllProductsFromCategory(String category) => Baseio<ProductModel>(urlpath: Paths.urlGetProductsFromCategory + category,serializer: (p0) => productModelFromJsonMapper(p0),).getAll();
+ 
 
 }

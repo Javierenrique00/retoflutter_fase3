@@ -12,6 +12,7 @@ typedef ResponseGetAllUsers = Either<String, List<UserModel>>;
 typedef ResponseGetUser = Either<String, UserModel>;
 typedef ResponseGetAllCarts = Either<String, List<CartModel>>;
 typedef ResponseGetCart = Either<String, CartModel>;
+typedef ResponseGetAllCategories = Either<String, List<String>>;
 
 /// Class with the interface of all store api for the fake Store API
 abstract class StoreApiInterface {
@@ -121,5 +122,40 @@ abstract class StoreApiInterface {
   /// ```
   Future<ResponseGetCart> getSingleCart(int id);
 
+  /// ### getAllCategories()
+  /// 
+  /// Get all categories fronm products
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final categories = await StoreApi().getAllCategories();
+  ///   categories.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('categories size:${r.size}');
+  ///     },
+  ///   );
+  /// ```
+  Future<ResponseGetAllCategories> getAllCategories();
+
+
+  /// ### getAllProductsFromCategory(String category)
+  /// 
+  /// Get all products from a category
+  /// 
+  /// Example:
+  /// 
+  /// ```dart
+  ///   final allProductsEither = await StoreApi().getAllProductsFromCategory(''jewelery);
+  ///    allProductsEither.fold(
+  ///     (l) => print('error code $l'),
+  ///     (r){
+  ///       print('loaded all products: qty:${r.length}');
+  ///       print('Primer producto: ${r[0]}');
+  ///     },
+  ///   );
+  /// ```
+  Future<ResponseGetAllProducts> getAllProductsFromCategory(String category);
 
 }

@@ -25,5 +25,11 @@ late final StoreApiInterface store;
 
   @override
   Future<ResponseGetCart> getSingleCart(int id) => store.getSingleCart(id);
+  
+  @override
+  Future<ResponseGetAllCategories> getAllCategories() => store.getAllCategories();
+  
+  @override
+  Future<ResponseGetAllProducts> getAllProductsFromCategory(String category) => store.getAllProductsFromCategory(category);
 
 }

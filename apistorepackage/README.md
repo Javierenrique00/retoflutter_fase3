@@ -8,7 +8,7 @@ Dart 3.x o Flutter 3.x
 
 ## Versión
 
-apistorepackege: 1.0.0
+apistorepackege: 1.1.0
 
 ## Instalación
 
@@ -136,6 +136,10 @@ class StoreApi {
   Future<Either<String, List<CartModel>>> getAllCarts();
 
   Future<Either<String, CartModel>> getSingleCart(int id);
+
+  Future<Either<String, String>> getAllCategories();
+
+  Future<Either<String, List<ProductModel>>> getAllProductsFromCategory(String category);
 }
 ```
 

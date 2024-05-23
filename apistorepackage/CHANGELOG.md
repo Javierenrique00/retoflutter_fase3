@@ -1,5 +1,9 @@
 # ChangeLOG
 
+## 1.2.0 Adjust internal abstractions
+
+New functions to api, getAllCategories, getAllProductsFromCategory, Example modified
+
 ## 1.1.0 Adjust internal abstractions
 
 Provide public Interface por ApiStore
